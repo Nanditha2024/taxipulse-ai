@@ -1,0 +1,20 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Data
+data/
+!data/.gitkeep
+
+# Spark
+spark-warehouse/
+metastore_db/
+derby.log
+
+# Jupyter
+.ipynb_checkpoints/
