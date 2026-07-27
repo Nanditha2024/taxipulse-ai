@@ -1,0 +1,11 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: taxipulse-api
+    ports:
+      - "8000:8000"
+    environment:
+      LOG_LEVEL: INFO
+    restart: unless-stopped
