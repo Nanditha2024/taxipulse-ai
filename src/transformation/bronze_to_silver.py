@@ -8,6 +8,18 @@ df = pd.read_parquet(RAW)
 
 print("Rows before cleaning:", len(df))
 
+# Convert pickup datetime
+df["tpep_pickup_datetime"] = pd.to_datetime(
+    df["tpep_pickup_datetime"],
+    errors="coerce"
+)
+
+# Keep only January 2025 pickup dates
+df = df[
+    (df["tpep_pickup_datetime"] >= "2025-01-01")
+    & (df["tpep_pickup_datetime"] < "2025-02-01")
+].copy()
+
 # Remove impossible trips
 df = df[df["trip_distance"] > 0]
 df = df[df["fare_amount"] > 0]
